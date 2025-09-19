@@ -2,14 +2,22 @@ package dev.auan.cadastrodeninjas.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/missoes")
 public class MissaoController {
 
+    private MissaoService missaoService;
+
+    public MissaoController(MissaoService missaoService) {
+        this.missaoService = missaoService;
+    }
+
     // GET -- mandar requisicao para listar missoes
     @GetMapping("/listar")
-    public String listarMissao() {
-        return "Missoes listadas com sucesso";
+    public List<MissaoModel> listarMissao() {
+        return missaoService.listarMissoes();
     }
 
     // POST -- mandar requisicao para criar missoes
