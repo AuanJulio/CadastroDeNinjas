@@ -38,4 +38,9 @@ public class MissaoController {
         missaoService.deletarMissaoPorId(id);
     }
 
+    @GetMapping("/listar/{id}")
+    public MissaoModel buscarMissaoPorId(@PathVariable long id) {
+        return missaoService.buscarMissaoPorId(id);
+    }
+
 }

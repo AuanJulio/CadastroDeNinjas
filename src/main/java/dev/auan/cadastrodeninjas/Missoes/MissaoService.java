@@ -3,6 +3,7 @@ package dev.auan.cadastrodeninjas.Missoes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MissaoService {
@@ -23,6 +24,11 @@ public class MissaoService {
 
     public void deletarMissaoPorId(long id) {
         missaoRepository.deleteById(id);
+    }
+
+    public MissaoModel buscarMissaoPorId(long id) {
+        Optional<MissaoModel> missaoPorId = missaoRepository.findById(id);
+        return missaoPorId.orElse(null);
     }
 
 }
