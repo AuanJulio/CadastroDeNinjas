@@ -29,12 +29,14 @@ public class NinjaModel {
     @Column(name = "img_url")
     private String imgUrl;
 
+    @Column(name = "rank")
+    private String rank;
+
     @Column(name = "idade")
     private int idade;
 
-    // @ManyToOne Um ninja tem uma unica missao
     @ManyToOne
-    @JoinColumn(name = "missao_id") // Foreign Key/Chave Estrangeira
+    @JoinColumn(name = "missao_id")
     private MissaoModel missao;
 
 }
