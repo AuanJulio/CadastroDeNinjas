@@ -1,5 +1,6 @@
 package dev.auan.cadastrodeninjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.auan.cadastrodeninjas.Ninjas.NinjaDTO;
 import dev.auan.cadastrodeninjas.Ninjas.NinjaModel;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class MissaoDTO {
 
     private String dificuldade;
 
+    @JsonIgnore
     private List<NinjaModel> ninja;
 
 }
