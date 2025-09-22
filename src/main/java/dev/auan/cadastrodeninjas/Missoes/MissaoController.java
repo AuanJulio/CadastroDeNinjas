@@ -14,32 +14,28 @@ public class MissaoController {
         this.missaoService = missaoService;
     }
 
-    // GET -- mandar requisicao para listar missoes
     @GetMapping("/listar")
-    public List<MissaoModel> listarMissao() {
+    public List<MissaoDTO> listarMissao() {
         return missaoService.listarMissoes();
     }
 
-    // POST -- mandar requisicao para criar missoes
     @PostMapping("/criar")
-    public MissaoModel criarMissao(@RequestBody MissaoModel missao) {
+    public MissaoDTO criarMissao(@RequestBody MissaoDTO missao) {
         return missaoService.criarMissao(missao);
     }
 
-    // PUT -- mandar requisicao para alterar missoes
-    @PutMapping("/alterar")
-    public String alterarMissao() {
-        return "Missao alterada com sucesso";
+    @PutMapping("/alterar/{id}")
+    public MissaoDTO alterarMissao(@PathVariable long id, @RequestBody MissaoDTO missao) {
+        return missaoService.atualizarMissao(id, missao);
     }
 
-    // DELETE -- mandar requisicao para deletar missoes
     @DeleteMapping("/deletar/{id}")
     public void deletarMissao(@PathVariable long id) {
         missaoService.deletarMissaoPorId(id);
     }
 
     @GetMapping("/listar/{id}")
-    public MissaoModel buscarMissaoPorId(@PathVariable long id) {
+    public MissaoDTO buscarMissaoPorId(@PathVariable long id) {
         return missaoService.buscarMissaoPorId(id);
     }
 
